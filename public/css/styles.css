@@ -1,0 +1,45 @@
+/*@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway|Roboto:400,700,900');
+body {
+  background: #faeceb;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+a.text-white:hover {
+  text-decoration: none !important;
+}
+a.text-white {
+  font-size: 20px;
+}
+.border-secondary, .card-header {
+  background-color: transparent !important;
+  border-color: #FF7043 !important;
+  border-width: 1.25px;
+}
+.bg-secondary {
+  background-color: #FF7043 !important;
+}
+.navbar-brand {
+  font-family: 'Lobster', cursive !important;
+  font-size: 72px;
+  padding: 0;
+}
+.navbar {
+  padding-left: 4em;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.content {
+  padding: 20px;
+}
+.h-r-cards {
+  height: 150px;
+}
+#h-r-header {
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+}
+#h-r-body {
+  padding-bottom: 0px !important;
+}*/
