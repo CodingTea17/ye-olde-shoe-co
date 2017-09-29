@@ -1,9 +1,37 @@
-/*@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway|Roboto:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,700|Source+Sans+Pro');
 body {
-  background: #faeceb;
+  background: #D3DEE7;
   background-size: cover;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
+.bg-secondary {
+  background-color: #123652 !important;
+}
+.navbar-brand {
+  font-family: 'Cabin', sans-serif !important;
+  font-weight: 700;
+  font-size: 32px;
+  padding: 0;
+}
+.navbar {
+  padding-left: 4em;
+  margin-bottom: 0;
+}
+.content {
+  padding: 20px;
+}
+.btn-outline-secondary {
+    color: #123652;
+    border-color: #123652;
+}
+.btn-outline-secondary:hover {
+    color: #eeeeee;
+    border-color: #123652;
+    background-color: #496D89;
+}
+
+/*@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway|Roboto:400,700,900');
+
 a.text-white:hover {
   text-decoration: none !important;
 }
@@ -18,17 +46,7 @@ a.text-white {
 .bg-secondary {
   background-color: #FF7043 !important;
 }
-.navbar-brand {
-  font-family: 'Lobster', cursive !important;
-  font-size: 72px;
-  padding: 0;
-}
-.navbar {
-  padding-left: 4em;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
+
 .content {
   padding: 20px;
 }

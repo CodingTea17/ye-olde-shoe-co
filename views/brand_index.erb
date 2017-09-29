@@ -1,0 +1,24 @@
+<div class="row justify-content-md-center">
+  <div class="col-6">
+    <div class="card mt-4 center-text" style="padding:20px;">
+      <h3>Add a Brand to the System</h3>
+      <form action="/brand/new" method="post">
+        <div class="form-group">
+          <label for="name">Brand Name:</label>
+          <input class="form-control" type="text" name="name"/>
+        </div>
+        <label for="pricel">Price:</label>
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input class="form-control" type="text" name="price"/>
+        </div><br>
+        <button type="submit" class="btn btn-outline-secondary btn-block">Save New Brand</button>
+      </form>
+      <% if @brands.any? %>
+        <% @brands.each do |brand| %>
+          <p><%= brand.name %> | <%= brand.price %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
