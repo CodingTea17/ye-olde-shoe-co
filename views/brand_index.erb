@@ -48,7 +48,7 @@
                 <tr class="table-light">
                   <td class="align-middle"><%= brand.id %></td>
                   <td class="align-middle"><%= brand.name %></td>
-                  <td class="align-middle"><%= brand.price %></td>
+                  <td class="align-middle">$<%= brand.price %></td>
                   <td class="align-middle"><%= brand.stores.count %></td>
                   <td style="text-align: center;">
                     <form action="/brand/stores/<%= brand.id %>" method="post">
