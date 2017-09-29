@@ -1,3 +1,14 @@
+<div class="row justify-content-md-center">
+  <div class="col-6">
+    <% if @new_store %>
+      <% @new_store.errors().full_messages().each() do |message| %>
+        <div class="alert alert-danger" role="alert">
+          <li><%= message %></li>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <div class="row justify-content-md-center mb-4">
   <div class="col-6">
     <div class="card mt-4">

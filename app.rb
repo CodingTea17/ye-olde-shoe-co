@@ -15,11 +15,12 @@ get '/stores' do
 end
 
 post '/store/new' do
-  new_store = Store.new({:name => params["name"]})
-  if new_store.save
+  @new_store = Store.new({:name => params["name"]})
+  if @new_store.save
     redirect '/stores'
   else
-
+    @stores = Store.all
+    erb :store_index
   end
 end
 
@@ -79,11 +80,12 @@ get '/brands' do
 end
 
 post '/brand/new' do
-  new_brand = Brand.new({:name => params["name"], :price => params["price"]})
-  if new_brand.save
+  @new_brand = Brand.new({:name => params["name"], :price => params["price"]})
+  if @new_brand.save
     redirect '/brands'
   else
-
+    @brands = Brand.all
+    erb :brand_index
   end
 end
 
@@ -91,4 +93,9 @@ delete '/brand/delete/:id' do
   brand = Brand.find(params[:id])
   brand.destroy
   redirect '/brands'
+end
+
+get '/brand/stores/:id' do
+  @brand = Brand.find(params[:id])
+  erb :brand_stores
 end

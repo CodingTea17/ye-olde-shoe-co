@@ -1,7 +1,7 @@
 class Brand < ActiveRecord::Base
   has_many :inventories
   has_many :stores, through: :inventories
-  validates(:name, {:presence => true, :length => {:maximum => 25}, uniqueness: { case_sensitive: false }})
+  validates(:name, {:presence => true, :length => {:maximum => 100}, uniqueness: { case_sensitive: false }})
   validates(:price, {:presence => true})
   before_save(:capitalize_brand, :format_money)
 

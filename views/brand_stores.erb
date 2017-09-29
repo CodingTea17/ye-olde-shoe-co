@@ -1,0 +1,38 @@
+<div class="row justify-content-md-center">
+  <div class="col">
+    <div class="card mt-4">
+      <div class="card-header bg-primary text-white">
+        Store's Carrying <%= @brand.name %> (<%= @brand.stores.count %>)
+      </div>
+      <div class="card-body">
+        <% if @brand.stores.any? %>
+          <table class="table table-hover table-bordered" style="margin-bottom:0;">
+            <thead class="thead" style="background-color:#A3B8C8;">
+              <tr>
+                <th>Store ID</th>
+                <th>Name</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @brand.stores.each do |store| %>
+                <tr class="table-light">
+                  <td class="align-middle"><%= store.id %></td>
+                  <td class="align-middle"><%= store.name %></td>
+                  <td style="text-align: center;">
+                    <form action="/store/brands/<%= store.id %>/remove/<%= @brand.id %>" method="post">
+                      <input name="_method" type="hidden" value="delete">
+                      <button class="btn btn-danger btn-block" type="submit">Remove from Brand</button>
+                    </form>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <h1 class="text-center">No stores assoctiated with this brand yet.</h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

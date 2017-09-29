@@ -1,5 +1,16 @@
 <div class="row justify-content-md-center">
   <div class="col-6">
+    <% if @new_brand %>
+      <div class="alert alert-danger" role="alert">
+        <% @new_brand.errors().full_messages().each() do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-6">
     <div class="card mt-4">
       <div class="card-body">
         <h2 class="card-title">Add a Brand to the System</h2>
@@ -51,9 +62,9 @@
                   <td class="align-middle">$<%= brand.price %></td>
                   <td class="align-middle"><%= brand.stores.count %></td>
                   <td style="text-align: center;">
-                    <form action="/brand/stores/<%= brand.id %>" method="post">
-                      <button class="btn btn-info btn-block" type="submit">View Stores</button>
-                    </form>
+                    <a href="/brand/stores/<%= brand.id %>">
+                      <button class="btn btn-info btn-block" type="button">View Stores</button>
+                    </a>
                   </td>
                   <!-- <td style="text-align: center;">
                     <a href="/brand/update/<%= brand.id %>">
