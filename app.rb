@@ -15,7 +15,20 @@ get '/stores' do
   erb :store_index
 end
 
+post '/store/new' do
+  new_store = Store.new({:name => params["name"]})
+  if new_store.save
+    redirect '/stores'
+  else
+
+  end
+end
+
 get '/brands' do
   @brands = Brand.all
   erb :brand_index
+end
+
+post '/brand/new' do
+
 end

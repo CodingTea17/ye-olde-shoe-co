@@ -7,6 +7,9 @@ body {
 .bg-secondary {
   background-color: #123652 !important;
 }
+.bg-primary {
+  background-color: #496D89 !important;
+}
 .navbar-brand {
   font-family: 'Cabin', sans-serif !important;
   font-weight: 700;
