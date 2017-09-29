@@ -23,16 +23,55 @@
     </div>
   </div>
 </div>
-<% if @brands.any? %>
-  <div class="row justify-content-md-center">
-    <div class="col-8">
+<div class="row justify-content-md-center">
+  <div class="col">
+    <% if @brands.any? %>
       <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+          Active brands (<%= @brands.count %>)
+        </div>
         <div class="card-body">
-          <% @brands.each do |brand| %>
-            <p><%= brand.name %> | <%= brand.price %>
-          <% end %>
+          <table class="table table-hover table-bordered" style="margin-bottom:0;">
+            <thead class="thead" style="background-color:#A3B8C8;">
+              <tr>
+                <th>Brand ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th># of Store Stocking</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @brands.each do |brand| %>
+                <tr class="table-light">
+                  <td class="align-middle"><%= brand.id %></td>
+                  <td class="align-middle"><%= brand.name %></td>
+                  <td class="align-middle"><%= brand.price %></td>
+                  <td class="align-middle"><%= brand.stores.count %></td>
+                  <td style="text-align: center;">
+                    <form action="/brand/stores/<%= brand.id %>" method="post">
+                      <button class="btn btn-info btn-block" type="submit">View Stores</button>
+                    </form>
+                  </td>
+                  <td style="text-align: center;">
+                    <a href="/brand/update/<%= brand.id %>">
+                      <button class="btn btn-warning btn-block" type="button">Edit brand</button>
+                    </a>
+                  </td>
+                  <td style="text-align: center;">
+                    <form action="/brand/delete/<%= brand.id %>" method="post">
+                      <input name="_method" type="hidden" value="delete">
+                      <button class="btn btn-danger btn-block" type="submit">Delete brand</button>
+                    </form>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

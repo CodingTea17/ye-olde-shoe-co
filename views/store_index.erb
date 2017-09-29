@@ -20,50 +20,49 @@
   <div class="col">
     <% if @stores.any? %>
       <div class="card mt-4">
-          <div class="card-header bg-primary text-white">
-            Active Stores (<%= @stores.count %>)
-          </div>
-          <div class="card-body">
-            <table class="table table-hover table-bordered" style="margin-bottom:0;">
-              <thead class="thead" style="background-color:#A3B8C8;">
-                <tr>
-                  <th>Store ID</th>
-                  <th>Name</th>
-                  <th># of Brands</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @stores.each do |store| %>
-                  <tr class="table-light">
-                    <td class="align-middle"><%= store.id %></td>
-                    <td class="align-middle"><%= store.name %></td>
-                    <td class="align-middle"><%= store.brands.count %></td>
-                    <td style="text-align: center;">
-                      <form action="/store/brands/<%= store.id %>" method="post">
-                        <button class="btn btn-info btn-block" type="submit">View Brands</button>
-                      </form>
-                    </td>
-                    <td style="text-align: center;">
-                      <a href="/store/update/<%= store.id %>">
-                        <button class="btn btn-warning btn-block" type="button">Edit Store</button>
-                      </a>
-                    </td>
-                    <td style="text-align: center;">
-                      <form action="/store/delete/<%= store.id %>" method="post">
-                        <input name="_method" type="hidden" value="delete">
-                        <button class="btn btn-danger btn-block" type="submit">Delete Store</button>
-                      </form>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+        <div class="card-header bg-primary text-white">
+          Active Stores (<%= @stores.count %>)
         </div>
-
-    </div>
+        <div class="card-body">
+          <table class="table table-hover table-bordered" style="margin-bottom:0;">
+            <thead class="thead" style="background-color:#A3B8C8;">
+              <tr>
+                <th>Store ID</th>
+                <th>Name</th>
+                <th># of Brands</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @stores.each do |store| %>
+                <tr class="table-light">
+                  <td class="align-middle"><%= store.id %></td>
+                  <td class="align-middle"><%= store.name %></td>
+                  <td class="align-middle"><%= store.brands.count %></td>
+                  <td style="text-align: center;">
+                    <form action="/store/brands/<%= store.id %>" method="post">
+                      <button class="btn btn-info btn-block" type="submit">View Brands</button>
+                    </form>
+                  </td>
+                  <td style="text-align: center;">
+                    <a href="/store/update/<%= store.id %>">
+                      <button class="btn btn-warning btn-block" type="button">Edit Store</button>
+                    </a>
+                  </td>
+                  <td style="text-align: center;">
+                    <form action="/store/delete/<%= store.id %>" method="post">
+                      <input name="_method" type="hidden" value="delete">
+                      <button class="btn btn-danger btn-block" type="submit">Delete Store</button>
+                    </form>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

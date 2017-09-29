@@ -30,5 +30,10 @@ get '/brands' do
 end
 
 post '/brand/new' do
+  new_brand = Brand.new({:name => params["name"], :price => params["price"]})
+  if new_brand.save
+    redirect '/brands'
+  else
 
+  end
 end
