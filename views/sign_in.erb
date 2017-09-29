@@ -1,0 +1,9 @@
+<h1>Sign in</h1>
+<% if @error %>
+  <p class="error"><%= @error %></p>
+<% end %>
+<form action="/sign_in" method="post">
+  <input name="username" placeholder="Username" />
+  <input name="pass" type="password" placeholder="Password" />
+  <button type="submit" class="btn btn-success">Login</button>
+</form>
