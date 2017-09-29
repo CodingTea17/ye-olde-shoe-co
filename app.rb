@@ -56,6 +56,11 @@ delete '/store/brands/:store_id/remove/:brand_id' do
   redirect back
 end
 
+get '/store/update/:id' do
+  @store = Store.find(params[:id])
+  erb :store_update
+end
+
 patch '/store/update/:id' do
   store = Store.find(params[:id])
   store.update({:name => params["name"]})

@@ -4,6 +4,9 @@ body {
   background-size: cover;
   font-family: 'Source Sans Pro', sans-serif;
 }
+a:hover {
+  text-decoration: none !important;
+}
 .bg-secondary {
   background-color: #123652 !important;
 }

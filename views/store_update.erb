@@ -1,0 +1,19 @@
+<div class="row justify-content-md-center mb-4">
+  <div class="col-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h2 class="card-title">Update <%= @store.name %> to:</h2>
+        <form action="/store/update/<%= @store.id %>" method="post">
+          <input name="_method" type="hidden" value="patch">
+          <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Store Name:</label>
+            <div class="col-sm-9">
+              <input class="form-control" type="text" name="name"/>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-secondary btn-block">Confirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
