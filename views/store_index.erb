@@ -65,7 +65,7 @@
                   <td style="text-align: center;">
                     <form action="/store/delete/<%= store.id %>" method="post">
                       <input name="_method" type="hidden" value="delete">
-                      <button class="btn btn-danger btn-block" type="submit">Delete Store</button>
+                      <button class="btn btn-danger btn-block" type="submit" id="<%= store.name %>">Delete Store</button>
                     </form>
                   </td>
                 </tr>
