@@ -18,8 +18,6 @@ helpers do
 end
 
 get '/' do
-  @stores = Store.all
-  @brands = Brand.all
   erb :index
 end
 
@@ -46,12 +44,8 @@ end
 
 
 get '/stores' do
-  if current_user
-    @stores = Store.all
-    erb :store_index
-  else
-    redirect '/sign_in'
-  end
+  @stores = Store.all
+  erb :store_index
 end
 
 post '/store/new' do
@@ -69,13 +63,9 @@ post '/store/new' do
 end
 
 get '/store/brands/:id' do
-  if current_user
-    @store = Store.find(params[:id])
-    @brands = Brand.all
-    erb :store_brands
-  else
-    redirect '/sign_in'
-  end
+  @store = Store.find(params[:id])
+  @brands = Brand.all
+  erb :store_brands
 end
 
 ######### This route lets a user add an existing brand #########
@@ -147,12 +137,8 @@ delete '/store/delete/:id' do
 end
 
 get '/brands' do
-  if current_user
-    @brands = Brand.all
-    erb :brand_index
-  else
-    redirect '/sign_in'
-  end
+  @brands = Brand.all
+  erb :brand_index
 end
 
 post '/brand/new' do
@@ -180,10 +166,6 @@ delete '/brand/delete/:id' do
 end
 
 get '/brand/stores/:id' do
-  if current_user
-    @brand = Brand.find(params[:id])
-    erb :brand_stores
-  else
-    redirect '/sign_in'
-  end
+  @brand = Brand.find(params[:id])
+  erb :brand_stores
 end
