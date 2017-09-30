@@ -4,6 +4,12 @@ describe 'the store creation path', {:type => :feature} do
   it 'takes the user to the page where they can create a store' do
     visit '/'
     click_link 'Stores'
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    click_link 'Stores'
+    ###########################################################
     fill_in('name', :with => 'Kyle\'s Kicks')
     click_button('Save New Store')
     expect(page).to have_content('Kyle\'s Kicks')
@@ -14,6 +20,12 @@ describe 'the brand creation path', {:type => :feature} do
   it 'takes the user to the page where they can create a brand' do
     visit '/'
     click_link 'Brands'
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    click_link 'Brands'
+    ###########################################################
     fill_in('name', :with => 'Super Shoes')
     fill_in('price', :with => '37.99')
     click_button('Save New Brand')
@@ -25,6 +37,12 @@ describe 'the error alert feature', {:type => :feature} do
   it 'shows an error when an input is blank' do
     visit '/'
     click_link 'Brands'
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    click_link 'Brands'
+    ###########################################################
     fill_in('name', :with => 'Super Shoes')
     fill_in('price', :with => '')
     click_button('Save New Brand')
@@ -34,6 +52,12 @@ describe 'the error alert feature', {:type => :feature} do
   it 'shows an error when a duplicate entry is added' do
     visit '/'
     click_link 'Brands'
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    click_link 'Brands'
+    ###########################################################
     fill_in('name', :with => 'Super Shoes')
     fill_in('price', :with => '99.99')
     click_button('Save New Brand')
@@ -50,7 +74,13 @@ describe 'the store update path', {:type => :feature} do
     test_store = Store.new({:name => 'Daves\'s Shoes Emporium'})
     test_store.save
     visit '/'
-    click_link('Stores')
+    click_link 'Stores'
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    click_link 'Stores'
+    ###########################################################
     click_link('Edit Store')
     fill_in('name', :with => 'Kyle\'s Kicks')
     click_button('Confirm')
@@ -64,7 +94,13 @@ describe 'the store delete path', {:type => :feature} do
     test_store.save
     visit "/stores"
     visit '/'
-    click_link('Stores')
+    click_link 'Stores'
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    click_link 'Stores'
+    ###########################################################
     click_button("#{test_store.name}")
     expect(page).not_to have_content('Dave\'s Shoes Emporium')
   end
@@ -77,6 +113,12 @@ describe 'the store brands page', {:type => :feature} do
     store_id = test_store.id
     test_shoe = Brand.new({:name => 'Ruttes', :price => "34.65"})
     test_shoe.save
+    visit "/store/brands/#{store_id}"
+    # An inelegant solution to my capybara authorization issues
+    fill_in('username', :with => 'admin')
+    fill_in('pass', :with => 'isarubyist')
+    click_button('Login')
+    ###########################################################
     visit "/store/brands/#{store_id}"
     expect(page).to have_content('Ruttes')
   end

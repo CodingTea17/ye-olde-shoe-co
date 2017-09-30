@@ -10,7 +10,7 @@ admin.save
 helpers do
   def current_user
     if session[:user_id]
-       User.find { |u| u.id == session[:user_id] }
+      User.find { |u| u.id == session[:user_id] }
     else
       nil
     end
