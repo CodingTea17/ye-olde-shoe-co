@@ -2,13 +2,12 @@ require "spec_helper"
 
 describe 'the store creation path', {:type => :feature} do
   it 'takes the user to the page where they can create a store' do
-    visit '/'
-    click_link 'Stores'
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
-    click_link 'Stores'
+    click_link 'Stores' # redirects home
     ###########################################################
     fill_in('name', :with => 'Kyle\'s Kicks')
     click_button('Save New Store')
@@ -18,9 +17,8 @@ end
 
 describe 'the brand creation path', {:type => :feature} do
   it 'takes the user to the page where they can create a brand' do
-    visit '/'
-    click_link 'Brands'
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
@@ -35,9 +33,8 @@ end
 
 describe 'the error alert feature', {:type => :feature} do
   it 'shows an error when an input is blank' do
-    visit '/'
-    click_link 'Brands'
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
@@ -50,9 +47,8 @@ describe 'the error alert feature', {:type => :feature} do
   end
 
   it 'shows an error when a duplicate entry is added' do
-    visit '/'
-    click_link 'Brands'
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
@@ -73,9 +69,8 @@ describe 'the store update path', {:type => :feature} do
   it 'allows a user to change the name of the store' do
     test_store = Store.new({:name => 'Daves\'s Shoes Emporium'})
     test_store.save
-    visit '/'
-    click_link 'Stores'
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
@@ -92,10 +87,8 @@ describe 'the store delete path', {:type => :feature} do
   it 'allows a user to delete a project' do
     test_store = Store.new({:name => 'Dave\'s Shoes Emporium'})
     test_store.save
-    visit "/stores"
-    visit '/'
-    click_link 'Stores'
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
@@ -113,8 +106,8 @@ describe 'the store brands page', {:type => :feature} do
     store_id = test_store.id
     test_shoe = Brand.new({:name => 'Ruttes', :price => "34.65"})
     test_shoe.save
-    visit "/store/brands/#{store_id}"
     # An inelegant solution to my capybara authorization issues
+    visit '/sign_in'
     fill_in('username', :with => 'admin')
     fill_in('pass', :with => 'isarubyist')
     click_button('Login')
